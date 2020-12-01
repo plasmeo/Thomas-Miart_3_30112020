@@ -1,0 +1,30 @@
+@media (max-width: 1900px) {
+  body {
+    width: 420px;
+    margin: auto;
+    border: black solid 1px;
+  }
+}
+.headerContainer {
+  width: 100%;
+  margin: 20px 0px 10px 0px;
+}
+
+header {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+}
+
+.logo {
+  width: 100%;
+  margin: auto;
+  grid-column-start: 2;
+}
+
+.fa-arrow-left {
+  padding-left: 30px;
+  font-size: 1.5em;
+  line-height: 30px;
+}
+
+/*# sourceMappingURL=style.css.map */
