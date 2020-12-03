@@ -1,0 +1,55 @@
+.footerContainer {
+  background-color: #353535;
+  width: 100%;
+  padding: 30px 0 20px 0;
+}
+
+footer {
+  width: 90%;
+  margin: auto;
+  p,
+  li,
+  h4,
+  a,
+  i {
+    color: white;
+  }
+  & h4 {
+    font-family: "Shrikhand";
+    font-size: 1.3rem;
+    margin: 0;
+    margin-bottom: 10px;
+  }
+}
+
+.mentions {
+  &__top {
+    display: grid;
+    grid-template-columns: 30px 1fr;
+  }
+  p,
+  a {
+    font-family: "Roboto-regular";
+    margin: 0;
+    margin-top: 10px;
+  }
+  .fa-hands-helping,
+  .fa-utensils {
+    margin-top: 10px;
+  }
+}
+
+@media (min-width: 768px) {
+  .mentions {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    &__top {
+      display: grid;
+      grid-template-columns: 30px 1fr;
+    }
+    &__bottom {
+      margin-left: 30%;
+    }
+  }
+}
