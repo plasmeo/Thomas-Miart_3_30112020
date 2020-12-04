@@ -14,8 +14,13 @@
   font-family: "Roboto-bold";
   src: url("../../public/fonts/Roboto/Roboto-Bold.ttf");
 }
+@font-face {
+  font-family: "Roboto-black";
+  src: url("../../public/fonts/Roboto/Roboto-Black.ttf");
+}
 body {
   width: 100%;
+  border: black 1px solid;
   margin: auto;
 }
 body a {
@@ -36,14 +41,105 @@ body a:visited {
   box-shadow: inset 0px 10px 10px -10px rgba(0, 0, 0, 0.37);
 }
 .location .fa-map-marker-alt {
-  font-size: 1.2rem;
+  font-size: 1rem;
   margin-top: 15px;
   margin-right: 5px;
 }
 .location p {
   font-family: "Roboto-bold";
+  font-size: 0.9rem;
 }
 
+.presentation {
+  display: flex;
+  flex-direction: column;
+  padding-top: 40px;
+  background-color: #f6f6f6;
+}
+.presentation h1 {
+  max-width: 75%;
+  margin: auto;
+  font-family: "Roboto-black";
+  text-align: center;
+  margin-bottom: 20px;
+}
+.presentation p {
+  max-width: 75%;
+  margin: auto;
+  font-family: "Roboto-thin";
+  text-align: center;
+}
+.presentation__button {
+  height: 50px;
+  width: 220px;
+  border-radius: 25px;
+  background: linear-gradient(#ff79da, #9356dc);
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.37);
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+.presentation__button p {
+  font-family: "Roboto-Bold";
+  color: white;
+  font-size: 0.9rem;
+}
+
+h2 {
+  font-family: "Roboto-black";
+  margin-left: 20px;
+}
+
+.fonctionnement {
+  margin: 50px 20x 50px 20px;
+}
+.fonctionnement .etapes {
+  display: flex;
+  flex-wrap: wrap;
+}
+.fonctionnement .etapes .step {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 65px;
+  width: 300px;
+  border-radius: 25px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.37);
+  padding-top: 10px;
+  margin: 10px;
+}
+.fonctionnement .etapes .step__number {
+  background-color: #9356dc;
+  border-radius: 50px;
+  height: 22px;
+  width: 22px;
+  margin-left: -10px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+.fonctionnement .etapes .step__number p {
+  margin: auto;
+  color: white;
+}
+.fonctionnement .etapes .step i {
+  color: #7e7e7e;
+  font-size: 1.3rem;
+  margin: 0 20px 0 20px;
+}
+.fonctionnement .etapes .step p {
+  font-family: "Roboto-Bold";
+}
+
+@media (max-width: 640px) {
+  .etapes {
+    flex-direction: column;
+    align-content: center;
+  }
+}
 .headerContainer {
   width: 100%;
   margin: 20px 0px 10px 0px;
