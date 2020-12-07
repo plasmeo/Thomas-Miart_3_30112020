@@ -26,6 +26,7 @@ body {
 body a {
   font-style: none;
   text-decoration: none;
+  margin: 0;
 }
 body a:visited {
   color: inherit;
@@ -74,13 +75,17 @@ body a:visited {
   width: 220px;
   border-radius: 25px;
   background: linear-gradient(#ff79da, #9356dc);
-  display: flex;
-  flex-direction: column;
-  align-content: center;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.37);
   margin: auto;
   margin-top: 30px;
   margin-bottom: 50px;
+}
+.presentation__button a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
 }
 .presentation__button p {
   font-family: "Roboto-Bold";
@@ -132,6 +137,134 @@ h2 {
 }
 .fonctionnement .etapes .step p {
   font-family: "Roboto-Bold";
+}
+
+.restaurants {
+  margin-bottom: 50px;
+}
+.restaurants .listeRestaurants {
+  margin-top: 50px;
+}
+.restaurants .listeRestaurants .carte {
+  margin: auto;
+  width: 90%;
+  max-width: 500px;
+  height: 250px;
+  position: relative;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.37);
+}
+.restaurants .listeRestaurants .carte__new {
+  z-index: 1;
+  position: absolute;
+  right: 10px;
+  top: 5px;
+}
+.restaurants .listeRestaurants .carte__new p {
+  color: #139273;
+  background-color: #99e2d0;
+  width: 60px;
+  font-size: 0.8rem;
+  padding: 5px;
+  font-family: "Roboto-Bold";
+  border-radius: 2px;
+  text-align: center;
+}
+.restaurants .listeRestaurants .carte__pic {
+  z-index: 0;
+  object-fit: cover;
+  width: 100%;
+  height: 170px;
+  border-radius: 15px 15px 0 0;
+}
+.restaurants .listeRestaurants .carte h3,
+.restaurants .listeRestaurants .carte p {
+  margin: 5px 0 10px 10px;
+  margin-left: 10px;
+}
+.restaurants .listeRestaurants .carte h3 {
+  font-family: "Roboto-Black";
+  margin-top: 10px;
+}
+.restaurants .listeRestaurants .carte__text {
+  font-family: "Roboto-regular";
+}
+.restaurants .listeRestaurants .carte i {
+  font-size: 1.5rem;
+  position: absolute;
+  right: 25px;
+  bottom: 30px;
+}
+
+.menu__pic {
+  width: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+.menu__liste {
+  position: relative;
+  z-index: 1;
+  background-color: white;
+  margin-top: -60px;
+  padding-top: 20px;
+  border-radius: 40px;
+}
+.menu__liste .nom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.menu__liste h1 {
+  margin: 10px 20px 20px 20px;
+  font-family: "Shrikhand";
+  font-size: 1.8rem;
+}
+.menu__liste i {
+  font-size: 1.8rem;
+  margin: auto;
+  margin-right: 10%;
+}
+.menu__liste h2 {
+  font-family: "roboto-thin";
+  font-size: 1.2rem;
+  margin-left: 10px;
+}
+
+.liste {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.liste .plat {
+  height: 70px;
+  width: 90%;
+  min-width: 298px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.37);
+  display: grid;
+  grid-template-columns: 3fr 0.5fr;
+  padding-left: 10px;
+  margin: 10px 0 10px 0;
+  border-radius: 20px;
+}
+.liste .plat__nom {
+  font-family: "roboto-bold";
+  grid-column-start: span 2;
+  margin: 15px 0 0 0;
+}
+.liste .plat__detail {
+  font-family: "roboto-regular";
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.liste .plat__detail, .liste .plat__prix {
+  margin: 0 0 10px 0;
+}
+.liste .plat__prix {
+  font-family: "roboto-bold";
+  text-align: right;
+  margin-right: 30%;
 }
 
 @media (max-width: 640px) {
