@@ -1,6 +1,5 @@
 body {
   width: 100%;
-  border: black 1px solid;
   margin: auto;
   a {
     font-style: none;
@@ -38,22 +37,24 @@ body {
   flex-direction: column;
   padding-top: 40px;
   background-color: #f6f6f6;
+  h1,
+  p,
+  &__button {
+    margin: auto;
+  }
   h1 {
     max-width: 75%;
-    margin: auto;
     font-family: "Roboto-black";
     text-align: center;
     margin-bottom: 20px;
   }
   p {
     max-width: 75%;
-    margin: auto;
     font-family: "Roboto-thin";
     text-align: center;
   }
   &__button {
     @include button($index-button-width);
-    margin: auto;
     margin-top: 30px;
     margin-bottom: 50px;
   }
@@ -77,9 +78,12 @@ h2 {
 }
 
 .restaurants {
+  background-color: #f6f6f6;
+  padding-top: 40px;
+  margin-top: 60px;
   margin-bottom: 50px;
   .listeRestaurants {
-    margin-top: 50px;
+    margin-top: 25px;
     .carte {
       margin: auto;
       @include carte;
@@ -119,6 +123,13 @@ h2 {
       font-family: "roboto-thin";
       font-size: 1.2rem;
       margin-left: 10px;
+      &:after {
+        content: "";
+        display: block;
+        width: 40px;
+        padding-top: 5px;
+        border-bottom: 3px solid $colour-carte-bg;
+      }
     }
   }
 }
@@ -135,9 +146,34 @@ h2 {
   }
 }
 
-@media (max-width: 640px) {
+.order {
+  &__button {
+    @include button($order-button-width);
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 50px;
+  }
+}
+
+@media (max-width: 768px) {
   .etapes {
     flex-direction: column;
     align-content: center;
+  }
+}
+@media (min-width: 768px) {
+  .etapes {
+    justify-content: center;
+  }
+  .restaurants {
+    .listeRestaurants {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      .carte {
+        margin: auto 2%;
+        margin-bottom: 20px;
+      }
+    }
   }
 }
