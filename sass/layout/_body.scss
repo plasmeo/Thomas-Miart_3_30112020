@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   width: 100%;
   margin: auto;
@@ -12,7 +16,31 @@ body {
   }
 }
 
-.location {
+.fa-spinner {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  font-size: 10rem;
+  margin: 100px 0;
+  color: $colour-primary;
+  animation-name: spinner;
+  animation-duration: 3s;
+  animation-fill-mode: both;
+  animation-timing-function: ease-in-out;
+}
+
+.searchBar__location,
+.searchBar__fonctionnement,
+.searchBar__presentation,
+.restaurantContainer {
+  animation-name: fadeInverted;
+  animation-duration: 0.2s;
+  animation-delay: 3s;
+  animation-fill-mode: both;
+  animation-timing-function: ease-in-out;
+}
+
+.searchBar__location {
   height: 50px;
   display: flex;
   flex-direction: row;
@@ -32,7 +60,7 @@ body {
   }
 }
 
-.presentation {
+.searchBar__presentation {
   display: flex;
   flex-direction: column;
   padding-top: 40px;
@@ -62,10 +90,10 @@ body {
 
 h2 {
   font-family: "Roboto-black";
-  margin-left: 20px;
+  margin-left: 10%;
 }
 
-.fonctionnement {
+.searchBar__fonctionnement {
   margin: 50px 20x 50px 20px;
   .etapes {
     display: flex;
@@ -77,11 +105,14 @@ h2 {
   }
 }
 
-.restaurants {
+.restaurantContainer {
   background-color: #f6f6f6;
+}
+
+.restaurants {
   padding-top: 40px;
   margin-top: 60px;
-  margin-bottom: 50px;
+  padding-bottom: 60px;
   .listeRestaurants {
     margin-top: 25px;
     .carte {
@@ -90,20 +121,27 @@ h2 {
     }
   }
 }
-
 .menu {
+  background-color: $colour-locationBG;
+  padding-bottom: 30px;
   &__pic {
     width: 100%;
-    object-fit: cover;
+    max-width: 550px;
+    display: block;
+    margin: auto;
+    object-fit: contain;
     z-index: 0;
   }
   &__liste {
     position: relative;
     z-index: 1;
     background-color: white;
+    margin: auto;
     margin-top: -60px;
     padding-top: 20px;
     border-radius: 40px;
+    max-width: 550px;
+    padding-left: 10px;
     .nom {
       display: flex;
       flex-direction: row;
@@ -118,11 +156,24 @@ h2 {
       font-size: 1.8rem;
       margin: auto;
       margin-right: 10%;
+
+      &:hover {
+        display: none;
+        + .fas {
+          display: inline;
+          color: red;
+        }
+      }
+    }
+    .fas {
+      display: none;
+      transition: 200ms;
     }
     h2 {
       font-family: "roboto-thin";
       font-size: 1.2rem;
-      margin-left: 10px;
+      margin-left: 0;
+
       &:after {
         content: "";
         display: block;
@@ -132,13 +183,17 @@ h2 {
       }
     }
   }
+  &__button {
+    @include button($order-button-width);
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 50px;
+  }
 }
 
 .liste {
   display: flex;
   flex-direction: column;
-  align-items: center;
-
   .plat {
     @include plat;
     margin: 10px 0 10px 0;
@@ -146,13 +201,27 @@ h2 {
   }
 }
 
-.order {
-  &__button {
-    @include button($order-button-width);
-    margin: auto;
-    margin-top: 40px;
-    margin-bottom: 50px;
-  }
+.listeEntrees {
+  animation-name: loading-menus;
+  animation-duration: 400ms;
+  animation-fill-mode: both;
+  animation-timing-function: ease-in-out;
+}
+
+.listePlats {
+  animation-name: loading-menus;
+  animation-duration: 400ms;
+  animation-delay: 200ms;
+  animation-fill-mode: both;
+  animation-timing-function: ease-in-out;
+}
+
+.listeDesserts {
+  animation-name: loading-menus;
+  animation-duration: 400ms;
+  animation-delay: 400ms;
+  animation-fill-mode: both;
+  animation-timing-function: ease-in-out;
 }
 
 @media (max-width: 768px) {

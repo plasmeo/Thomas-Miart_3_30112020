@@ -18,6 +18,43 @@
   font-family: "Roboto-black";
   src: url("../../public/fonts/Roboto/Roboto-Black.ttf");
 }
+@keyframes loading-menus {
+  0% {
+    transform: translateX(-200px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+@keyframes spinner {
+  0% {
+    display: block;
+    transform: rotate(360deg);
+  }
+  75% {
+    color: #ff79da;
+    transform: rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+@keyframes fadeInverted {
+  0% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+* {
+  box-sizing: border-box;
+}
+
 body {
   width: 100%;
   margin: auto;
@@ -32,7 +69,31 @@ body a:visited {
   text-decoration: none;
 }
 
-.location {
+.fa-spinner {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  font-size: 10rem;
+  margin: 100px 0;
+  color: #9356dc;
+  animation-name: spinner;
+  animation-duration: 3s;
+  animation-fill-mode: both;
+  animation-timing-function: ease-in-out;
+}
+
+.searchBar__location,
+.searchBar__fonctionnement,
+.searchBar__presentation,
+.restaurantContainer {
+  animation-name: fadeInverted;
+  animation-duration: 0.2s;
+  animation-delay: 3s;
+  animation-fill-mode: both;
+  animation-timing-function: ease-in-out;
+}
+
+.searchBar__location {
   height: 50px;
   display: flex;
   flex-direction: row;
@@ -40,38 +101,38 @@ body a:visited {
   background-color: #eaeaea;
   box-shadow: inset 0px 10px 10px -10px rgba(0, 0, 0, 0.37);
 }
-.location .fa-map-marker-alt {
+.searchBar__location .fa-map-marker-alt {
   font-size: 1rem;
   margin-top: 15px;
   margin-right: 5px;
 }
-.location p {
+.searchBar__location p {
   font-family: "Roboto-bold";
   font-size: 0.9rem;
 }
 
-.presentation {
+.searchBar__presentation {
   display: flex;
   flex-direction: column;
   padding-top: 40px;
   background-color: #f6f6f6;
 }
-.presentation h1,
-.presentation p, .presentation__button {
+.searchBar__presentation h1,
+.searchBar__presentation p, .searchBar__presentation__button {
   margin: auto;
 }
-.presentation h1 {
+.searchBar__presentation h1 {
   max-width: 75%;
   font-family: "Roboto-black";
   text-align: center;
   margin-bottom: 20px;
 }
-.presentation p {
+.searchBar__presentation p {
   max-width: 75%;
   font-family: "Roboto-thin";
   text-align: center;
 }
-.presentation__button {
+.searchBar__presentation__button {
   height: 50px;
   width: 220px;
   border-radius: 25px;
@@ -80,33 +141,37 @@ body a:visited {
   margin-top: 30px;
   margin-bottom: 50px;
 }
-.presentation__button a {
+.searchBar__presentation__button a {
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-content: center;
 }
-.presentation__button p {
+.searchBar__presentation__button p {
   font-family: "Roboto-Bold";
   color: white;
   font-size: 0.9rem;
   margin: auto;
 }
+.searchBar__presentation__button:hover {
+  background: linear-gradient(#ff93e1, #a16be0);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+}
 
 h2 {
   font-family: "Roboto-black";
-  margin-left: 20px;
+  margin-left: 10%;
 }
 
-.fonctionnement {
+.searchBar__fonctionnement {
   margin: 50px 20x 50px 20px;
 }
-.fonctionnement .etapes {
+.searchBar__fonctionnement .etapes {
   display: flex;
   flex-wrap: wrap;
 }
-.fonctionnement .etapes .step {
+.searchBar__fonctionnement .etapes .step {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -117,7 +182,7 @@ h2 {
   padding-top: 10px;
   margin: 10px;
 }
-.fonctionnement .etapes .step__number {
+.searchBar__fonctionnement .etapes .step__number {
   background-color: #9356dc;
   border-radius: 50px;
   height: 22px;
@@ -127,24 +192,27 @@ h2 {
   flex-direction: column;
   align-content: center;
 }
-.fonctionnement .etapes .step__number p {
+.searchBar__fonctionnement .etapes .step__number p {
   margin: auto;
   color: white;
 }
-.fonctionnement .etapes .step i {
+.searchBar__fonctionnement .etapes .step i {
   color: #7e7e7e;
   font-size: 1.3rem;
   margin: 0 20px 0 20px;
 }
-.fonctionnement .etapes .step p {
+.searchBar__fonctionnement .etapes .step p {
   font-family: "Roboto-Bold";
 }
 
-.restaurants {
+.restaurantContainer {
   background-color: #f6f6f6;
+}
+
+.restaurants {
   padding-top: 40px;
   margin-top: 60px;
-  margin-bottom: 50px;
+  padding-bottom: 60px;
 }
 .restaurants .listeRestaurants {
   margin-top: 25px;
@@ -201,18 +269,28 @@ h2 {
   bottom: 30px;
 }
 
+.menu {
+  background-color: #eaeaea;
+  padding-bottom: 30px;
+}
 .menu__pic {
   width: 100%;
-  object-fit: cover;
+  max-width: 550px;
+  display: block;
+  margin: auto;
+  object-fit: contain;
   z-index: 0;
 }
 .menu__liste {
   position: relative;
   z-index: 1;
   background-color: white;
+  margin: auto;
   margin-top: -60px;
   padding-top: 20px;
   border-radius: 40px;
+  max-width: 550px;
+  padding-left: 10px;
 }
 .menu__liste .nom {
   display: flex;
@@ -229,10 +307,21 @@ h2 {
   margin: auto;
   margin-right: 10%;
 }
+.menu__liste i:hover {
+  display: none;
+}
+.menu__liste i:hover + .fas {
+  display: inline;
+  color: red;
+}
+.menu__liste .fas {
+  display: none;
+  transition: 200ms;
+}
 .menu__liste h2 {
   font-family: "roboto-thin";
   font-size: 1.2rem;
-  margin-left: 10px;
+  margin-left: 0;
 }
 .menu__liste h2:after {
   content: "";
@@ -241,11 +330,37 @@ h2 {
   padding-top: 5px;
   border-bottom: 3px solid #99e2d0;
 }
+.menu__button {
+  height: 50px;
+  width: 185px;
+  border-radius: 25px;
+  background: linear-gradient(#ff79da, #9356dc);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.37);
+  margin: auto;
+  margin-top: 40px;
+  margin-bottom: 50px;
+}
+.menu__button a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+.menu__button p {
+  font-family: "Roboto-Bold";
+  color: white;
+  font-size: 0.9rem;
+  margin: auto;
+}
+.menu__button:hover {
+  background: linear-gradient(#ff93e1, #a16be0);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+}
 
 .liste {
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 .liste .plat {
   height: 70px;
@@ -261,7 +376,7 @@ h2 {
 .liste .plat__nom {
   font-family: "roboto-bold";
   grid-column-start: span 2;
-  margin: 15px 0 0 0;
+  margin: 12px 0 0 0;
 }
 .liste .plat__detail {
   font-family: "roboto-regular";
@@ -278,28 +393,27 @@ h2 {
   margin-right: 30%;
 }
 
-.order__button {
-  height: 50px;
-  width: 185px;
-  border-radius: 25px;
-  background: linear-gradient(#ff79da, #9356dc);
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.37);
-  margin: auto;
-  margin-top: 40px;
-  margin-bottom: 50px;
+.listeEntrees {
+  animation-name: loading-menus;
+  animation-duration: 400ms;
+  animation-fill-mode: both;
+  animation-timing-function: ease-in-out;
 }
-.order__button a {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-content: center;
+
+.listePlats {
+  animation-name: loading-menus;
+  animation-duration: 400ms;
+  animation-delay: 200ms;
+  animation-fill-mode: both;
+  animation-timing-function: ease-in-out;
 }
-.order__button p {
-  font-family: "Roboto-Bold";
-  color: white;
-  font-size: 0.9rem;
-  margin: auto;
+
+.listeDesserts {
+  animation-name: loading-menus;
+  animation-duration: 400ms;
+  animation-delay: 400ms;
+  animation-fill-mode: both;
+  animation-timing-function: ease-in-out;
 }
 
 @media (max-width: 768px) {
@@ -342,6 +456,7 @@ header {
 .fa-arrow-left {
   font-size: 1.5em;
   line-height: 30px;
+  margin-left: 20px;
 }
 
 a {
@@ -367,6 +482,7 @@ footer i {
 }
 footer h4 {
   font-family: "Shrikhand";
+  font-weight: normal;
   font-size: 1.3rem;
   margin: 0;
   margin-bottom: 10px;

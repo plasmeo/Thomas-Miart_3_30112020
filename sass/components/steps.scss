@@ -1,0 +1,32 @@
+@mixin step {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 65px;
+  width: 300px;
+  border-radius: 25px;
+  @include button-shadow;
+  padding-top: 10px;
+  &__number {
+    background-color: $colour-primary;
+    border-radius: 50px;
+    height: 22px;
+    width: 22px;
+    margin-left: -10px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    p {
+      margin: auto;
+      color: white;
+    }
+  }
+  i {
+    color: $colour-icon;
+    font-size: 1.3rem;
+    margin: 0 20px 0 20px;
+  }
+  p {
+    font-family: "Roboto-Bold";
+  }
+}

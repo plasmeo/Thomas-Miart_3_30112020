@@ -1,0 +1,51 @@
+@mixin carte {
+  width: 90%;
+  max-width: 350px;
+  height: 250px;
+  position: relative;
+  border-radius: $carte-border;
+  margin-bottom: 20px;
+  @include button-shadow;
+  &__new {
+    z-index: 1;
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    p {
+      color: $colour-carte-new;
+      background-color: $colour-carte-bg;
+      width: 60px;
+      font-size: 0.8rem;
+      padding: 5px;
+      font-family: "Roboto-Bold";
+      border-radius: 2px;
+      text-align: center;
+    }
+  }
+  &__pic {
+    z-index: 0;
+    object-fit: cover;
+    width: 100%;
+    height: 170px;
+    border-radius: $carte-border $carte-border 0 0;
+  }
+  h3,
+  p {
+    margin: 5px 0 10px 10px;
+    margin-left: 10px;
+  }
+
+  h3 {
+    font-family: "Roboto-Black";
+    margin-top: 10px;
+  }
+  &__text {
+    font-family: "Roboto-regular";
+  }
+  i {
+    font-size: 1.5rem;
+    position: absolute;
+    right: 25px;
+    bottom: 30px;
+  }
+}
