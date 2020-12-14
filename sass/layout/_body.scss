@@ -142,6 +142,8 @@ h2 {
     border-radius: 40px;
     max-width: 550px;
     padding-left: 10px;
+    padding-bottom: 30px;
+
     .nom {
       display: flex;
       flex-direction: row;
@@ -193,6 +195,7 @@ h2 {
 
 .liste {
   display: flex;
+  padding-right: 10px;
   flex-direction: column;
   .plat {
     @include plat;
