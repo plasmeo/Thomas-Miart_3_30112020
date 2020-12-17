@@ -60,8 +60,8 @@ body {
   margin: auto;
 }
 body a {
-  font-style: none;
   text-decoration: none;
+  color: black;
   margin: 0;
 }
 body a:visited {
@@ -138,6 +138,7 @@ body a:visited {
   border-radius: 25px;
   background: linear-gradient(#ff79da, #9356dc);
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.37);
+  transition: all 0.2s;
   margin-top: 30px;
   margin-bottom: 50px;
 }
@@ -156,7 +157,7 @@ body a:visited {
 }
 .searchBar__presentation__button:hover {
   background: linear-gradient(#ff93e1, #a16be0);
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 10px 0px black;
 }
 
 h2 {
@@ -165,7 +166,7 @@ h2 {
 }
 
 .searchBar__fonctionnement {
-  margin: 50px 20x 50px 20px;
+  margin: 50px 20px 50px 20px;
 }
 .searchBar__fonctionnement .etapes {
   display: flex;
@@ -250,6 +251,10 @@ h2 {
   height: 170px;
   border-radius: 15px 15px 0 0;
 }
+.restaurants .listeRestaurants .carte__infos {
+  display: flex;
+  justify-content: space-between;
+}
 .restaurants .listeRestaurants .carte h3,
 .restaurants .listeRestaurants .carte p {
   margin: 5px 0 10px 10px;
@@ -262,23 +267,31 @@ h2 {
 .restaurants .listeRestaurants .carte__text {
   font-family: "Roboto-regular";
 }
-.restaurants .listeRestaurants .carte i {
-  font-size: 1.5rem;
+.restaurants .listeRestaurants .carte .heartContainer {
   position: absolute;
-  right: 25px;
+  right: 0;
   bottom: 30px;
 }
-.restaurants .listeRestaurants .carte i:hover {
-  display: none;
+.restaurants .listeRestaurants .carte .heartContainer i {
+  font-size: 1.8rem;
 }
-.restaurants .listeRestaurants .carte i:hover + .fas {
-  display: inline;
-  color: red;
+.restaurants .listeRestaurants .carte .far {
+  color: black;
+  opacity: 1;
+  transition: all 0.4s;
 }
 .restaurants .listeRestaurants .carte .fas {
-  display: none;
-  transition: 200ms;
-  color: white;
+  position: relative;
+  right: 33px;
+  opacity: 0;
+  color: red;
+  transition: all 0.4s;
+}
+.restaurants .listeRestaurants .carte .fas:hover {
+  opacity: 1;
+}
+.restaurants .listeRestaurants .carte .fas:hover .far {
+  color: red;
 }
 
 .menu {
@@ -311,26 +324,34 @@ h2 {
   justify-content: space-between;
 }
 .menu__liste h1 {
-  margin: 10px 20px 20px 20px;
+  margin: auto;
+  margin-left: 20px;
+  margin-right: 0px;
   font-family: "Shrikhand";
   font-size: 1.8rem;
 }
-.menu__liste i {
+.menu__liste .heartContainer i {
   font-size: 1.8rem;
-  margin: auto;
-  margin-right: 10%;
 }
-.menu__liste i:hover {
-  display: none;
+.menu__liste > .far {
+  color: black;
+  transition: all 0.4s;
 }
-.menu__liste i:hover + .fas {
-  display: inline;
-  color: red;
+.menu__liste > .far:hover {
+  opacity: 0;
 }
 .menu__liste .fas {
-  display: none;
-  transition: 200ms;
-  color: white;
+  position: relative;
+  right: 33px;
+  opacity: 0;
+  color: red;
+  transition: all 0.4s;
+}
+.menu__liste .fas:hover {
+  opacity: 1;
+}
+.menu__liste .fas:hover .far {
+  opacity: 0;
 }
 .menu__liste h2 {
   font-family: "roboto-thin";
@@ -350,6 +371,7 @@ h2 {
   border-radius: 25px;
   background: linear-gradient(#ff79da, #9356dc);
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.37);
+  transition: all 0.2s;
   margin: auto;
   margin-top: 40px;
   margin-bottom: 50px;
@@ -369,7 +391,7 @@ h2 {
 }
 .menu__button:hover {
   background: linear-gradient(#ff93e1, #a16be0);
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 10px 0px black;
 }
 
 .liste {
@@ -381,46 +403,56 @@ h2 {
   height: 70px;
   min-width: 298px;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.37);
-  display: grid;
-  grid-template-columns: 5fr 1fr 0px;
-  padding-left: 10px;
-  transition: all 1s;
-  margin: 10px 0 10px 0;
   border-radius: 20px;
+  padding-left: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 10px 0 10px 0;
+}
+.liste .plat__composition {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex: 1;
 }
 .liste .plat__nom {
   font-family: "roboto-bold";
-  margin: 12px 0 0 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 .liste .plat__detail {
-  grid-row-start: 2;
   font-family: "roboto-regular";
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.liste .plat__detail, .liste .plat__prix {
-  margin: 0 0 10px 0;
+.liste .plat__nom, .liste .plat__detail {
+  margin: 0;
 }
 .liste .plat__prix {
   font-family: "roboto-bold";
   text-align: right;
-  margin-right: 30%;
-  grid-row-start: 2;
+  align-self: flex-end;
+  flex: 1;
+  padding-right: 20px;
 }
 .liste .plat i {
-  display: none;
-  grid-column-start: 3;
-  grid-row-start: span 2;
-  margin: auto;
-}
-.liste .plat:hover {
-  grid-template-columns: 3fr 1fr 50px;
+  display: block;
+  font-size: 1.4rem;
+  color: white;
+  overflow: hidden;
+  width: 0px;
+  margin: 0;
+  padding-top: 25px;
+  text-align: center;
+  background-color: #99e2d0;
+  border-radius: 0 20px 20px 0;
+  transition: all 0.2s ease-in-out;
 }
 .liste .plat:hover i {
+  width: 60px;
   display: block;
 }
 

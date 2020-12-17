@@ -29,6 +29,12 @@
     height: 170px;
     border-radius: $carte-border $carte-border 0 0;
   }
+
+  &__infos {
+    display: flex;
+    justify-content: space-between;
+  }
+
   h3,
   p {
     margin: 5px 0 10px 10px;
@@ -39,25 +45,34 @@
     font-family: "Roboto-Black";
     margin-top: 10px;
   }
+
   &__text {
     font-family: "Roboto-regular";
   }
-  i {
-    font-size: 1.5rem;
+  .heartContainer {
     position: absolute;
-    right: 25px;
+    right: 0;
     bottom: 30px;
+    i {
+      font-size: 1.8rem;
+    }
+  }
+  .far {
+    color: black;
+    opacity: 1;
+    transition: all 0.4s;
+  }
+  .fas {
+    position: relative;
+    right: 33px;
+    opacity: 0;
+    color: red;
+    transition: all 0.4s;
     &:hover {
-      display: none;
-      + .fas {
-        display: inline;
+      opacity: 1;
+      .far {
         color: red;
       }
     }
-  }
-  .fas {
-    display: none;
-    transition: 200ms;
-    color: white;
   }
 }

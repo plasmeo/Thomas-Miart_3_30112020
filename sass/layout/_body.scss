@@ -6,8 +6,8 @@ body {
   width: 100%;
   margin: auto;
   a {
-    font-style: none;
     text-decoration: none;
+    color: black;
     margin: 0;
     &:visited {
       color: inherit;
@@ -94,7 +94,7 @@ h2 {
 }
 
 .searchBar__fonctionnement {
-  margin: 50px 20x 50px 20px;
+  margin: 50px 20px 50px 20px;
   .etapes {
     display: flex;
     flex-wrap: wrap;
@@ -150,27 +150,37 @@ h2 {
       justify-content: space-between;
     }
     h1 {
-      margin: 10px 20px 20px 20px;
+      margin: auto;
+      margin-left: 20px;
+      margin-right: 0px;
       font-family: "Shrikhand";
       font-size: 1.8rem;
     }
-    .nom i {
-      font-size: 1.8rem;
-      margin: auto;
-      margin-right: 10%;
 
+    .heartContainer {
+      i {
+        font-size: 1.8rem;
+      }
+    }
+    > .far {
+      color: black;
+      transition: all 0.4s;
       &:hover {
-        display: none;
-        + .fas {
-          display: inline;
-          color: red;
-        }
+        opacity: 0;
       }
     }
     .fas {
-      display: none;
-      transition: 200ms;
-      color: white;
+      position: relative;
+      right: 33px;
+      opacity: 0;
+      color: red;
+      transition: all 0.4s;
+      &:hover {
+        opacity: 1;
+        .far {
+          opacity: 0;
+        }
+      }
     }
     h2 {
       font-family: "roboto-thin";
@@ -201,7 +211,6 @@ h2 {
   .plat {
     @include plat;
     margin: 10px 0 10px 0;
-    border-radius: 20px;
   }
 }
 
