@@ -170,6 +170,7 @@ h2 {
     .fas {
       display: none;
       transition: 200ms;
+      color: white;
     }
     h2 {
       font-family: "roboto-thin";
@@ -205,26 +206,15 @@ h2 {
 }
 
 .listeEntrees {
-  animation-name: loading-menus;
-  animation-duration: 400ms;
-  animation-fill-mode: both;
-  animation-timing-function: ease-in-out;
+  @include loading-menu(0ms);
 }
 
 .listePlats {
-  animation-name: loading-menus;
-  animation-duration: 400ms;
-  animation-delay: 200ms;
-  animation-fill-mode: both;
-  animation-timing-function: ease-in-out;
+  @include loading-menu(200ms);
 }
 
 .listeDesserts {
-  animation-name: loading-menus;
-  animation-duration: 400ms;
-  animation-delay: 400ms;
-  animation-fill-mode: both;
-  animation-timing-function: ease-in-out;
+  @include loading-menu(400ms);
 }
 
 @media (max-width: 768px) {

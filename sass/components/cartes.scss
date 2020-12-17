@@ -47,5 +47,17 @@
     position: absolute;
     right: 25px;
     bottom: 30px;
+    &:hover {
+      display: none;
+      + .fas {
+        display: inline;
+        color: red;
+      }
+    }
+  }
+  .fas {
+    display: none;
+    transition: 200ms;
+    color: white;
   }
 }
