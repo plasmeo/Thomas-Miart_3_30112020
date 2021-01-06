@@ -290,9 +290,6 @@ h2 {
 .restaurants .listeRestaurants .carte .fas:hover {
   opacity: 1;
 }
-.restaurants .listeRestaurants .carte .fas:hover .far {
-  color: red;
-}
 
 .menu {
   background-color: #eaeaea;
@@ -449,9 +446,11 @@ h2 {
   text-align: center;
   background-color: #99e2d0;
   border-radius: 0 20px 20px 0;
+  opacity: 0;
   transition: all 0.2s ease-in-out;
 }
 .liste .plat:hover i {
+  opacity: 1;
   width: 60px;
   display: block;
 }
