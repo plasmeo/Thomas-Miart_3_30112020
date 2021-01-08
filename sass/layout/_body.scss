@@ -94,7 +94,10 @@ h2 {
 }
 
 .searchBar__fonctionnement {
-  margin: 50px 20px 50px 20px;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  max-width: 1190px;
   .etapes {
     display: flex;
     flex-wrap: wrap;
@@ -110,6 +113,8 @@ h2 {
 }
 
 .restaurants {
+  max-width: 1190px;
+  margin: auto;
   padding-top: 40px;
   margin-top: 60px;
   padding-bottom: 60px;
@@ -140,7 +145,7 @@ h2 {
     margin-top: -60px;
     padding-top: 20px;
     border-radius: 40px;
-    max-width: 550px;
+    max-width: 1440px;
     padding-left: 10px;
     padding-bottom: 30px;
 
@@ -219,11 +224,11 @@ h2 {
 }
 
 .listePlats {
-  @include loading-menu(200ms);
+  @include loading-menu(300ms);
 }
 
 .listeDesserts {
-  @include loading-menu(400ms);
+  @include loading-menu(600ms);
 }
 
 @media (max-width: 768px) {
@@ -245,6 +250,15 @@ h2 {
         margin: auto 2%;
         margin-bottom: 20px;
       }
+    }
+  }
+}
+@media (min-width: 980px) {
+  .liste {
+    flex-direction: row;
+    justify-content: space-around;
+    .plat {
+      flex: 0.3;
     }
   }
 }

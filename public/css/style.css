@@ -20,11 +20,11 @@
 }
 @keyframes loading-menus {
   0% {
-    transform: translateX(-200px);
+    transform: translateY(10px);
     opacity: 0;
   }
   100% {
-    transform: translateX(0px);
+    transform: translateY(0px);
     opacity: 1;
   }
 }
@@ -166,7 +166,10 @@ h2 {
 }
 
 .searchBar__fonctionnement {
-  margin: 50px 20px 50px 20px;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  max-width: 1190px;
 }
 .searchBar__fonctionnement .etapes {
   display: flex;
@@ -180,7 +183,7 @@ h2 {
   width: 300px;
   border-radius: 25px;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.37);
-  padding-top: 10px;
+  transition: all 0.2s ease-in-out;
   margin: 10px;
 }
 .searchBar__fonctionnement .etapes .step__number {
@@ -205,12 +208,17 @@ h2 {
 .searchBar__fonctionnement .etapes .step p {
   font-family: "Roboto-Bold";
 }
+.searchBar__fonctionnement .etapes .step:hover {
+  background-color: #e4d5f6;
+}
 
 .restaurantContainer {
   background-color: #f6f6f6;
 }
 
 .restaurants {
+  max-width: 1190px;
+  margin: auto;
   padding-top: 40px;
   margin-top: 60px;
   padding-bottom: 60px;
@@ -311,7 +319,7 @@ h2 {
   margin-top: -60px;
   padding-top: 20px;
   border-radius: 40px;
-  max-width: 550px;
+  max-width: 1440px;
   padding-left: 10px;
   padding-bottom: 30px;
 }
@@ -412,6 +420,9 @@ h2 {
   flex-direction: column;
   justify-content: space-evenly;
   flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .liste .plat__nom {
   font-family: "roboto-bold";
@@ -432,27 +443,40 @@ h2 {
   font-family: "roboto-bold";
   text-align: right;
   align-self: flex-end;
-  flex: 1;
   padding-right: 20px;
 }
-.liste .plat i {
-  display: block;
-  font-size: 1.4rem;
-  color: white;
-  overflow: hidden;
-  width: 0px;
-  margin: 0;
-  padding-top: 25px;
-  text-align: center;
+.liste .plat__check {
   background-color: #99e2d0;
   border-radius: 0 20px 20px 0;
+  width: 0px;
   opacity: 0;
+  overflow: hidden;
   transition: all 0.2s ease-in-out;
+}
+.liste .plat i {
+  color: white;
+  overflow: hidden;
+  display: block;
+  width: 60px;
+  margin: 0;
+  position: relative;
+  top: 25px;
+  text-align: center;
+  border-radius: 0 20px 20px 0;
+  opacity: 1;
+  transform: rotate(180deg);
+  transform-origin: center;
+  transition: all 0.2s ease-in-out 0.2s;
 }
 .liste .plat:hover i {
   opacity: 1;
   width: 60px;
   display: block;
+  transform: rotate(0deg);
+}
+.liste .plat:hover .plat__check {
+  width: 60px;
+  opacity: 1;
 }
 
 .listeEntrees {
@@ -468,7 +492,7 @@ h2 {
   animation-duration: 400ms;
   animation-fill-mode: both;
   animation-timing-function: ease-in-out;
-  animation-delay: 200ms;
+  animation-delay: 300ms;
 }
 
 .listeDesserts {
@@ -476,7 +500,7 @@ h2 {
   animation-duration: 400ms;
   animation-fill-mode: both;
   animation-timing-function: ease-in-out;
-  animation-delay: 400ms;
+  animation-delay: 600ms;
 }
 
 @media (max-width: 768px) {
@@ -498,6 +522,15 @@ h2 {
   .restaurants .listeRestaurants .carte {
     margin: auto 2%;
     margin-bottom: 20px;
+  }
+}
+@media (min-width: 980px) {
+  .liste {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .liste .plat {
+    flex: 0.3;
   }
 }
 .headerContainer {
