@@ -131,10 +131,11 @@ h2 {
   padding-bottom: 30px;
   &__pic {
     width: 100%;
-    max-width: 550px;
+    max-width: 1430px;
+    max-height: 500px;
     display: block;
     margin: auto;
-    object-fit: contain;
+    object-fit: cover;
     z-index: 0;
   }
   &__liste {
@@ -253,11 +254,13 @@ h2 {
     }
   }
 }
-@media (min-width: 980px) {
+@media (min-width: 1040px) {
   .liste {
     flex-direction: row;
     justify-content: space-around;
+    flex-wrap: wrap;
     .plat {
+      margin: 10px 20px 10px 20px;
       flex: 0.3;
     }
   }

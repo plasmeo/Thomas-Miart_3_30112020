@@ -305,10 +305,11 @@ h2 {
 }
 .menu__pic {
   width: 100%;
-  max-width: 550px;
+  max-width: 1430px;
+  max-height: 500px;
   display: block;
   margin: auto;
-  object-fit: contain;
+  object-fit: cover;
   z-index: 0;
 }
 .menu__liste {
@@ -524,12 +525,14 @@ h2 {
     margin-bottom: 20px;
   }
 }
-@media (min-width: 980px) {
+@media (min-width: 1040px) {
   .liste {
     flex-direction: row;
     justify-content: space-around;
+    flex-wrap: wrap;
   }
   .liste .plat {
+    margin: 10px 20px 10px 20px;
     flex: 0.3;
   }
 }
