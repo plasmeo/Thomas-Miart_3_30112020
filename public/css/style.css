@@ -292,7 +292,13 @@ h2 {
   position: relative;
   right: 33px;
   opacity: 0;
-  color: red;
+  background: -moz-linear-gradient(top, #ff79da 0%, #9356dc 100%);
+  background: -webkit-linear-gradient(top, #ff79da 0%, #9356dc 100%);
+  background: linear-gradient(to bottom, #ff79da 0%, #9356dc 100%);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
   transition: all 0.4s;
 }
 .restaurants .listeRestaurants .carte .fas:hover {
@@ -547,7 +553,8 @@ header {
 }
 
 .logo {
-  width: 100%;
+  width: 30%;
+  min-width: 200px;
   margin: auto;
   grid-column-start: 2;
 }
